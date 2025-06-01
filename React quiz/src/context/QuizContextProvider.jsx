@@ -37,7 +37,7 @@ export const QuizContextProvider = ({children}) => {
             setCurrentIndex(0);
             setScore(0);
             setUserAnswers([]);
-            setStatus('inProgress');
+            setStatus("inProgress");
         } catch (error) {
             console.error("Error fetching quiz questions:", error);
             setError(error.message);
@@ -47,7 +47,6 @@ export const QuizContextProvider = ({children}) => {
     const resetAll = () => {
         setCumulativeScore(0);
         setSettings({ amount: 5, category: '', difficulty: '' });
-        setStatus("setup");
         setStatus("setup");
         setError(null);
     };
