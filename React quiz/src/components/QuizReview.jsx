@@ -2,7 +2,6 @@ import { useQuizContext } from "../context/useQuizContext";
 import styles from "./QuizReview.module.css";
 import he from "he";
 import DOMPurify from "dompurify";
-import {useEffect} from "react";
 
 export function QuizReview() {
     const {

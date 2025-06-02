@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {QuizContext} from "./QuizContext";
 
 export const QuizContextProvider = ({children}) => {
@@ -14,11 +14,6 @@ export const QuizContextProvider = ({children}) => {
     const saveCumulativeScore = (score) => {
         setCumulativeScore((prev) => prev + score);
     };
-
-    useEffect(() => {
-        localStorage.setItem("cumulativeScore", cumulativeScore);
-    }, [cumulativeScore]);
-
 
     const fetchQuestions = async () => {
         try {
@@ -78,7 +73,8 @@ export const QuizContextProvider = ({children}) => {
                 resetAll,
                 status,
                 setStatus,
-                saveCumulativeScore
+                saveCumulativeScore,
+                error
             }}
         >
             {children}

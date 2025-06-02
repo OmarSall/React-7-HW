@@ -32,7 +32,9 @@ export function QuizQuestion() {
     const safeQuestionHTML = DOMPurify.sanitize(he.decode(currentQuestion.question));
 
     useEffect(() => {
-        if (isAnswered) return;
+        if (isAnswered) {
+            return;
+        }
 
         if (timeLeft === 0) {
             handleAnswer(null); // no-answer is treated like a false one

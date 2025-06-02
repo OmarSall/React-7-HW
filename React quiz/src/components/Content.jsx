@@ -24,7 +24,6 @@ export default function Content() {
             {!error && status === "review" && (
                 <>
                     <QuizReview />
-                    <ScoreBoard />
                     <ResetButton />
                 </>
             )}

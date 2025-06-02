@@ -1,6 +1,5 @@
 import "./App.css"
 import {QuizContextProvider} from "./context/QuizContextProvider.jsx";
-import {useQuizContext} from "./context/useQuizContext";
 import Content from "./components/Content";
 
 function App() {
