@@ -11,6 +11,15 @@ export const QuizContextProvider = ({children}) => {
     const [status, setStatus] = useState("setup"); // setup | inProgress | review
     const [error, setError] = useState(null);
 
+    const saveCumulativeScore = (score) => {
+        setCumulativeScore((prev) => prev + score);
+    };
+
+    useEffect(() => {
+        localStorage.setItem("cumulativeScore", cumulativeScore);
+    }, [cumulativeScore]);
+
+
     const fetchQuestions = async () => {
         try {
             const {amount, category, difficulty} = settings;
@@ -46,7 +55,7 @@ export const QuizContextProvider = ({children}) => {
 
     const resetAll = () => {
         setCumulativeScore(0);
-        setSettings({ amount: 5, category: '', difficulty: '' });
+        setSettings({ amount: 5, category: "", difficulty: "" });
         setStatus("setup");
         setError(null);
     };
@@ -69,6 +78,7 @@ export const QuizContextProvider = ({children}) => {
                 resetAll,
                 status,
                 setStatus,
+                saveCumulativeScore
             }}
         >
             {children}

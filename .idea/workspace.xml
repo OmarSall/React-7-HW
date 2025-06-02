@@ -5,26 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d5fb52d-4a24-40b1-a257-16339106198e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/React quiz/src/components/ProgressBar.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/React quiz/src/components/QuizQuestion.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/React quiz/src/components/QuizReview.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/React quiz/src/components/QuizReview.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/React quiz/src/components/QuizSetupForm.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/React quiz/src/components/ResetButton.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/React quiz/src/components/ScoreBoard.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/React quiz/src/components/Timer.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/React quiz/src/functionalities/shuffleArray.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/React quiz/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/React quiz/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/React quiz/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/React quiz/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/React quiz/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/React quiz/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/React quiz/src/components/ProgressBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/React quiz/src/components/ProgressBar.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/React quiz/src/components/QuizQuestion.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/React quiz/src/components/QuizQuestion.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/React quiz/src/components/QuizSetupForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/React quiz/src/components/QuizSetupForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/React quiz/src/components/ResetButton.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/React quiz/src/components/ResetButton.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/React quiz/src/components/ReviewScreen.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/React quiz/src/components/Content.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/React quiz/src/components/ScoreBoard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/React quiz/src/components/ScoreBoard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/React quiz/src/components/Timer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/React quiz/src/components/Timer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/React quiz/src/components/QuizQuestion.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/React quiz/src/components/QuizQuestion.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/React quiz/src/components/QuizReview.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/React quiz/src/components/QuizReview.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/React quiz/src/components/QuizReview.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/React quiz/src/components/QuizReview.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/React quiz/src/components/ScoreBoard.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/React quiz/src/components/ScoreBoard.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/React quiz/src/context/QuizContextProvider.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/React quiz/src/context/QuizContextProvider.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -86,7 +72,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1748803822039</updated>
-      <workItem from="1748803823236" duration="10460000" />
+      <workItem from="1748803823236" duration="16255000" />
     </task>
     <servers />
   </component>

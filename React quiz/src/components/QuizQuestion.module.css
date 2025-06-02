@@ -15,6 +15,7 @@
 .question {
     margin-bottom: 1.5rem;
     font-size: 1.25rem;
+    color: white;
 }
 
 .answers {
@@ -22,6 +23,7 @@
     padding: 0;
     display: grid;
     gap: 0.5rem;
+    color: #1a1a1a;
 }
 
 .answer {

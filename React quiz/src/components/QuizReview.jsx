@@ -12,12 +12,8 @@ export function QuizReview() {
         setStatus,
         resetAll,
         cumulativeScore,
-        setCumulativeScore
     } = useQuizContext();
 
-    useEffect(() => {
-        setCumulativeScore((prev) => prev + score);
-    },[]);
 
     return (
         <div className={styles.container}>

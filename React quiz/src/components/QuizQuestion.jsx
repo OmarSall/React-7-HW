@@ -15,6 +15,7 @@ export function QuizQuestion() {
         setScore,
         setUserAnswers,
         setStatus,
+        saveCumulativeScore,
     } = useQuizContext();
 
     const [selectedAnswer, setSelectedAnswer] = useState(null);
@@ -68,6 +69,7 @@ export function QuizQuestion() {
         if (currentIndex + 1 < questions.length) {
             setCurrentIndex((prev) => prev + 1);
         } else {
+            saveCumulativeScore(score);
             setStatus("review");
         }
 
