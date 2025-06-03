@@ -4,6 +4,7 @@ import { QuizQuestion } from "./QuizQuestion";
 import { QuizReview } from "./QuizReview";
 import { ScoreBoard } from "./ScoreBoard";
 import { ResetButton } from "./ResetButton";
+import { QUIZ_STATUSES } from "../constants/quizStatuses";
 
 export default function Content() {
     const { status, error } = useQuizContext();
@@ -12,16 +13,16 @@ export default function Content() {
         <>
             {error && <div className="error">Error: {error}</div>}
 
-            {!error && status === "setup" && <QuizSetupForm />}
+            {!error && status === QUIZ_STATUSES.SETUP && <QuizSetupForm />}
 
-            {!error && status === "inProgress" && (
+            {!error && status === QUIZ_STATUSES.IN_PROGRESS && (
                 <>
                     <ScoreBoard />
                     <QuizQuestion />
                 </>
             )}
 
-            {!error && status === "review" && (
+            {!error && status === QUIZ_STATUSES.REVIEW && (
                 <>
                     <QuizReview />
                     <ResetButton />

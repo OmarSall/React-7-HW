@@ -11,7 +11,7 @@ export function Timer({ timeLeft, totalTime = 10 }) {
             <div className={styles.progressBar}>
                 <div
                     className={styles.progressFill}
-                    style={{ width: `${progressPercent}%` }}
+                    style={{ "--progress-width": `${progressPercent}%`} }
                 />
             </div>
         </div>

@@ -32,7 +32,10 @@ export function QuizSetupForm() {
         const {name, value} = event.target;
         setSettings((prev) => ({
             ...prev,
-            [name]: name === "amount" ? Number(value) : value,
+            [name]:
+                name === "amount"
+                    ? value === "" ? "" : Number(value)
+                    : value,
         }));
     };
 
@@ -50,7 +53,7 @@ export function QuizSetupForm() {
                     name="amount"
                     min="1"
                     max="50"
-                    value={settings.amount}
+                    value={settings.amount === "" ? "" : String(settings.amount)}
                     onChange={handleChange}
                 />
             </label>

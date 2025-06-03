@@ -2,6 +2,7 @@ import { useQuizContext } from "../context/useQuizContext";
 import styles from "./QuizReview.module.css";
 import he from "he";
 import DOMPurify from "dompurify";
+import {QUIZ_STATUSES} from "../constants/quizStatuses.js";
 
 export function QuizReview() {
     const {
@@ -51,7 +52,7 @@ export function QuizReview() {
             </ul>
 
             <div className={styles.buttons}>
-                <button onClick={() => setStatus("setup")} className={styles.restartButton}>
+                <button onClick={() => setStatus(QUIZ_STATUSES.SETUP)} className={styles.restartButton}>
                     New Quiz
                 </button>
                 <button onClick={resetAll} className={styles.resetButton}>

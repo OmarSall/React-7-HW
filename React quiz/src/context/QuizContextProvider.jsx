@@ -1,5 +1,6 @@
 import {useState} from "react";
 import {QuizContext} from "./QuizContext";
+import { QUIZ_STATUSES } from "../constants/quizStatuses";
 
 export const QuizContextProvider = ({children}) => {
     const [settings, setSettings] = useState({ amount: 5, category: "", difficulty: "" });
@@ -8,7 +9,7 @@ export const QuizContextProvider = ({children}) => {
     const [score, setScore] = useState(0);
     const [cumulativeScore, setCumulativeScore] = useState(0);
     const [userAnswers, setUserAnswers] = useState([]);
-    const [status, setStatus] = useState("setup"); // setup | inProgress | review
+    const [status, setStatus] = useState(QUIZ_STATUSES.SETUP); // setup | inProgress | review
     const [error, setError] = useState(null);
 
     const saveCumulativeScore = (score) => {
@@ -18,15 +19,20 @@ export const QuizContextProvider = ({children}) => {
     const fetchQuestions = async () => {
         try {
             const {amount, category, difficulty} = settings;
-            let url = `https://opentdb.com/api.php?amount=${amount}`;
+
+            const params = new URLSearchParams({
+                amount,
+                type: "multiple"
+            });
+            
             if (category) {
-                url += `&category=${category}`;
+                params.append("category", category);
             }
             if (difficulty) {
-                url += `&difficulty=${difficulty}`;
+                params.append("difficulty", difficulty);
             }
 
-            url += `&type=multiple`;
+            const url = `https://opentdb.com/api.php?${params.toString()}`;
 
             const response = await fetch(url);
             if (!response.ok) {
@@ -41,7 +47,7 @@ export const QuizContextProvider = ({children}) => {
             setCurrentIndex(0);
             setScore(0);
             setUserAnswers([]);
-            setStatus("inProgress");
+            setStatus(QUIZ_STATUSES.IN_PROGRESS);
         } catch (error) {
             console.error("Error fetching quiz questions:", error);
             setError(error.message);
@@ -51,7 +57,7 @@ export const QuizContextProvider = ({children}) => {
     const resetAll = () => {
         setCumulativeScore(0);
         setSettings({ amount: 5, category: "", difficulty: "" });
-        setStatus("setup");
+        setStatus(QUIZ_STATUSES.SETUP);
         setError(null);
     };
 

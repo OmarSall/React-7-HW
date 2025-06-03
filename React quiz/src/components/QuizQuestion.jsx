@@ -1,10 +1,11 @@
-import {useEffect, useMemo, useState} from "react";
+import {useEffect, useMemo, useState, useCallback} from "react";
 import {useQuizContext} from "../context/useQuizContext";
 import styles from "./QuizQuestion.module.css";
 import { shuffleArray } from "../functionalities/shuffleArray";
 import he from "he"; // decoding HTML-encoded text from API
 import DOMPurify from "dompurify";
 import { Timer } from "./Timer";
+import { QUIZ_STATUSES } from "../constants/quizStatuses";
 
 export function QuizQuestion() {
     const {
@@ -31,23 +32,7 @@ export function QuizQuestion() {
 
     const safeQuestionHTML = DOMPurify.sanitize(he.decode(currentQuestion.question));
 
-    useEffect(() => {
-        if (isAnswered) {
-            return;
-        }
-
-        if (timeLeft === 0) {
-            handleAnswer(null); // no-answer is treated like a false one
-        }
-
-        const timer = setTimeout(() => {
-            setTimeLeft((currentTime) => currentTime - 1);
-        }, 1000);
-
-        return () => clearTimeout(timer);
-    }, [timeLeft, isAnswered]);
-
-    const handleAnswer = (answer) => {
+    const handleAnswer = useCallback((answer) => {
         setSelectedAnswer(answer);
         setIsAnswered(true);
 
@@ -65,14 +50,36 @@ export function QuizQuestion() {
                 correct: currentQuestion.correct_answer,
             },
         ]);
-    };
+    },[
+        currentQuestion.correct_answer,
+        currentQuestion.question,
+        setScore,
+        setUserAnswers
+    ]);
+
+    useEffect(() => {
+        if (isAnswered) {
+            return;
+        }
+
+        if (timeLeft === 0) {
+            handleAnswer(null); // no-answer is treated like a false one
+        }
+
+        const timer = setTimeout(() => {
+            setTimeLeft((currentTime) => currentTime - 1);
+        }, 1000);
+
+        return () => clearTimeout(timer);
+    }, [timeLeft, isAnswered, handleAnswer]);
+
 
     const handleNext = () => {
         if (currentIndex + 1 < questions.length) {
             setCurrentIndex((prev) => prev + 1);
         } else {
             saveCumulativeScore(score);
-            setStatus("review");
+            setStatus(QUIZ_STATUSES.REVIEW);
         }
 
         setSelectedAnswer(null);
@@ -90,7 +97,7 @@ export function QuizQuestion() {
             />
 
             <ul className={styles.answers}>
-                {allAnswers.map((answer, index) => {
+                {allAnswers.map((answer) => {
                     const safeAnswerHTML = DOMPurify.sanitize(he.decode(answer));
                     const isCorrect = answer === currentQuestion.correct_answer;
                     const isSelected = selectedAnswer === safeAnswerHTML;
