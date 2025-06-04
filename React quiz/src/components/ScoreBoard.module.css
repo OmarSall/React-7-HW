@@ -1,0 +1,10 @@
+.scoreBoard {
+    margin: 10px 0;
+    font-size: 1.1rem;
+    color: #d8d8d8;
+}
+
+.scoreBoard p {
+    margin: 4px 0;
+    color: white;
+}
